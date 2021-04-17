@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+:root{
+  --primary: #5ad8b2;
+  --secondary: #555;
+  --error: #ff4a4a;
+}
+
+/* base styles & title */
+body{
+  font-family: "Open Sans";
+  background: #eee;
+  margin: 0;
+}
+.App{
+  max-width: 1080px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+}
