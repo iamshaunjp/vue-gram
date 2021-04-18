@@ -13,7 +13,9 @@ const useStorage = (file) => {
     // upload the file
     storageRef.put(file).on('state_changed', (snap) => {
       // update the progress as file uploads
-      console.log(snap)
+      let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
+      progress.value = percentage
+      console.log(progress.value)
     }, 
     (err) => {
       error.value = err
