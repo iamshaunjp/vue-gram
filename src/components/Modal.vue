@@ -1,6 +1,8 @@
 <template>
   <div class="backdrop" @click="handleClick">
-    <img :src="imgUrl" />
+    <transition name="image" appear>
+      <img :src="imgUrl" />
+    </transition>
   </div>
 </template>
 
@@ -33,5 +35,16 @@ export default {
     margin: 60px auto;
     box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
     position: relative;
+  }
+
+  /* modal transitions */
+  .image-enter-from {
+    bottom: -200%;
+  }
+  .image-enter-to {
+    bottom: 0;
+  }
+  .image-enter-active{
+    transition: all ease-in-out 0.5s;
   }
 </style>
