@@ -1,5 +1,5 @@
 <template>
-  <div class="progress-bar">uploading</div>
+  <div class="progress-bar" :style="{ width: progress + '%'}"></div>
 </template>
 
 <script>
@@ -13,13 +13,22 @@ export default {
 
     watchEffect(() => {
       if (progress.value >= 100) {
-        context.emit('complete')
+        setTimeout(() => context.emit('complete'), 1000)
       }
     })
+
+    return { progress }
   }
 }
 </script>
 
 <style>
-
+  .progress-bar {
+    display: block;
+    height: 6px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    border-radius: 6px;
+    margin-top: 20px;
+  }
 </style>
