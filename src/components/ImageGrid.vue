@@ -1,5 +1,5 @@
 <template>
-  <div class="img-grid">
+  <transition-group tag="div" name="grid" appear class="img-grid">
     <div 
       v-for="img in documents" 
       :key="img.id" 
@@ -7,7 +7,7 @@
     >
       <img :src="img.url" />
     </div>
-  </div>
+  </transition-group>
 </template>
 
 <script>
@@ -44,5 +44,19 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  /* transitions */
+  .grid-enter-from {
+    opacity: 0
+  }
+  .grid-enter-to {
+    opacity: 1;
+  }
+  .grid-enter-active {
+    transition: all 3s ease;
+  }
+  .grid-move {
+    transition: all 0.5s ease;
   }
 </style>
