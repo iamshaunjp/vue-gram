@@ -7,14 +7,17 @@
     <div class="output">
       <div v-if="fileError" class="error">{{ fileError }}</div>
       <div v-if="file">{{ file.name }}</div>
+      <ProgressBar v-if="file" :file="file" @complete="file = null" />
     </div>
   </form>
 </template>
 
 <script>
 import { ref } from 'vue'
+import ProgressBar from './ProgressBar'
 
 export default {
+  components: { ProgressBar },
   setup() {
     const file = ref(null)
     const fileError = ref(null)
