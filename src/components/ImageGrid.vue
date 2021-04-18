@@ -3,8 +3,14 @@
 </template>
 
 <script>
-export default {
+import useCollection from '../composables/useCollection'
 
+export default {
+  setup() {
+    const { documents } = useCollection('images')
+
+    return { documents }
+  }
 }
 </script>
 
