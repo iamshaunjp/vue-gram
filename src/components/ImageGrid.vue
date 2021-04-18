@@ -4,6 +4,7 @@
       v-for="img in documents" 
       :key="img.id" 
       class="img-wrap"
+      @click="handleClick(img.url)"
     >
       <img :src="img.url" />
     </div>
@@ -14,10 +15,14 @@
 import useCollection from '../composables/useCollection'
 
 export default {
-  setup() {
+  setup(props, context) {
     const { documents } = useCollection('images')
 
-    return { documents }
+    const handleClick = (url) => {
+      context.emit('selected', url)
+    }
+
+    return { documents, handleClick }
   }
 }
 </script>
